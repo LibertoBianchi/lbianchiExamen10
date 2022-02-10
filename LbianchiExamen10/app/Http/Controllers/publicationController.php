@@ -47,6 +47,40 @@ class publicationController extends Controller
      */
     public function store(Request $request)
     {
+
+// ELOQUENT  He usado valores iguales por que no me daba tiempo /*
+publiacion::create([
+    'publicationName' => $this->input('publicationName'),
+    
+]);
+
+/*
+ *
+ QUERY BUILDER
+    DB::table('publicacio)->insert([
+        
+       
+
+        'publicationName' => $this->str_random(publicationName),
+        'publicationName' => $request->input('publicationName'),
+        'publicationName' => $request->input('publicationName'),
+       
+    ]);
+
+
+  
+
+
+    RAW
+    DB::insert('insert into publicacio (publicationName,publicationExtract,publicationDescription,publicationDate) values (?,?,?,?)',$this->str_random(5),
+    $request->input('publicationName'),$request->input('publicationName'),$request->input('publicationName'),$request->input('publicationName'));
+ * */
+
+
+
+
+
+        
         $publications = new publicacion();
 $publications->publicationName =$request->get('publicationName');
 $publications->publicationExtract =$request->get('publicationExtract');
