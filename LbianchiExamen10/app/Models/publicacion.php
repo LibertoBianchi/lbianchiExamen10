@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class publicacion extends Model
 {
-    use HasFactory;
+    protected $table = 'publicacions';
+    protected $primaryKey = 'id';
+    protected $fillable = ['publicationName','publicationExtract','publicationContent','publicationDate'];
 }

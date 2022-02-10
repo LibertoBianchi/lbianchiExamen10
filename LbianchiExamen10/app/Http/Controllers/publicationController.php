@@ -27,6 +27,17 @@ class publicationController extends Controller
     {
         //
     }
+//Validación con font
+//Intento de validacion con formRequest
+    public function guardar(Request $request)
+    {
+        $request->validate([
+            'publicationName' => 'required',
+            
+            'publicationContent' => 'required',
+            'publicationDate' => 'required'
+        ]);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -36,7 +47,13 @@ class publicationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $publications = new publicacion();
+$publications->publicationName =$request->get('publicationName');
+$publications->publicationExtract =$request->get('publicationExtract');
+$publications->publicationContent =$request->get('publicationContent');
+$publications->publicationDate =$request->get('publicationDate');
+$publications->save();
+return view('publication.createProjectForm')->with('publications',$publications);
     }
 
     /**

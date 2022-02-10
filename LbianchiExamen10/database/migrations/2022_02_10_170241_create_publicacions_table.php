@@ -18,6 +18,7 @@ class CreatePublicacionsTable extends Migration
             $table->string('publicationName');
             $table->string('publicationExtract');
             $table->string('publicationContent');
+            $table->date('publicationDate');
             $table->timestamps();
         });
     }
